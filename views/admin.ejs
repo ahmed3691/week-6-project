@@ -1,0 +1,70 @@
+<%- include("header.ejs") %>
+
+    <header>
+        <nav class="navbar bg-success">
+            <div class="container-fluid d-flex justify-content-between px-5">
+              <span class="navbar-text text-white mx-5">
+                <h1>ADMIN PANEL</h1>
+              </span>
+              <div>
+                <form action="searchUser" class="d-flex search-bar me-5" role="search" method="post">
+                    <input id="search-field" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="userToFind">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                  </form>
+            </div>
+                <div>
+                    <span>
+                        <a href="createUser"><button class="btn btn-primary">Create New User</button></a>
+                    </span>
+                    <span>
+                        <a href="logout"><button class="btn btn-danger">Log out</button></a>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </header>
+          <main>
+            
+            <div class="container mt-5">
+                <form action="" method="post">
+                    <table class="table table-hover">
+                        <thead class="bg-primary">
+                            <tr >
+                                <th>ID</th>
+                                <th>User Email</th>
+                                <th>First Name</th>
+                                <th>Second Name</th>
+                                <th>Gender</th>
+                                <th>Edit</th>
+                                <th>Delete</th>    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i=0;i<users.length;i++){ %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= users[i].email %></td>
+                                <td><%= users[i].firstName %></td>
+                                <td><%= users[i].lastName %></td>
+                                <td><%= users[i].gender %></td>
+                                <td>
+                                    <span class="bg-primary rounded-3 px-2 edit-icon">
+                                        <a class="text-black edit" href="editUser?id=<%= users[i]._id %>">Edit</a>
+                                    </span>                                   
+                                </td>
+                                <td>
+                                    <span class="bg-danger rounded-3 px-2 edit-icon">
+                                        <a  class="text-black   edit" href="deleteUser?id=<%= users[i]._id %>">Delete</a>                                     
+                                    </span>  
+                                </td>
+                            </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                </form>
+               
+             </div>
+          </main>
+  
+
+<%- include("footer.ejs") %>

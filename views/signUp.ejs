@@ -1,0 +1,57 @@
+<%- include("header.ejs") %>
+    <div class="my-5  ">
+        <div class=" pb-5 text-center ">
+            <h2 class="font-weight-bold ">Create a new account</h2>
+        </div>
+        <form action="/signup" class="row g-3 mx-5" method="post" >
+            <div class="col-md-6">
+              <label for="FirstName" class="form-label">First Name</label>
+              <input type="text" class="form-control" name="firstName" id="name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" name="lastName" id="lastname" required>
+            </div>
+            <div class="col-12">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" name="email" id="email" placeholder="abc@gmail.com" required>
+            </div>
+            <div class="col-12 pb-3">
+              <label for="pass" class="form-label">Password</label>
+              <input type="password" class="form-control " name="password" id="pass" placeholder="password" required>
+            </div>
+            <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                <div class="col-sm-8">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Male" checked>
+                    <label class="form-check-label" for="gridRadios1">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Female">
+                    <label class="form-check-label" for="gridRadios2">
+                      Female
+                    </label>
+                  </div>
+                 
+                </div>
+              </fieldset>
+            <div class="col-2 mx-auto text-center">
+              <button type="submit" class="btn btn-success">Sign Up</button>
+            </div>
+          </form>
+          
+          <%  if(locals.message){ %>
+            <div class="bg-danger rounded-5 signup-message  mt-3 w-25 mx-auto  align-content-center text-center text-light">  <%= message %> </div>
+          <% } %>
+
+    </div>
+
+    
+
+
+
+<%- include("footer.ejs") %>
+

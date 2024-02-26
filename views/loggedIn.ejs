@@ -1,0 +1,11 @@
+<%- include("header.ejs") %>
+
+<div class="container ">
+    <div class="text-center  rounded-5 loginPage ">
+        <h1>Logged in Successfully</h1>
+        <h3> <%= locals.user ? user : "userName"  %></h3>
+        <a href="logout" class="btn logOut">Log out</a>
+    </div>
+</div>
+
+<%- include("footer.ejs") %>

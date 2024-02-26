@@ -1,0 +1,37 @@
+<%- include("header.ejs") %>
+
+<div class=" my-5" id="login">
+    <div class="container w-25 border py-5 rounded-5">
+        <div class="title pb-5 text-center title-text">
+            <h2 class="font-weight-bold " >Welcome</h2>
+            <span>Login to your existing account</span><br>
+            
+        </div>
+
+        <form action="/login" method="POST" >
+            <div class="form-group mb-3">
+                <label for="email" class="form-label title-text"> Registered Email adress</label>
+                <input type="email" name="userEmail" class="form-control" id="userEmail" placeholder="email" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="password" class="form-label  title-text">Password</label>
+                <input type="password" name="userPassword" class="form-control " id="userPasword" placeholder="password" required>
+            </div>
+            <div class="text-center mb-3">
+                <input type="submit" class="btn btn-success " value="Login" >
+            </div>
+            <div class=" d-flex justify-content-around text-center ">
+               <span>Don't have an account?</span> 
+               <a href="signup">Sign up</a>
+            </div>
+        </form>
+        <% if(locals.message==="Account created successfully"){ %>
+            <div class="bg-success rounded-5 mt-3 text-center text-light">  <%= message %> </div>
+          
+          <% } else if(locals.message){ %>
+            <div class="bg-danger rounded-5 mt-3 text-center text-light">  <%= message %> </div>
+          <% } %>
+    </div>
+</div>
+
+<%- include("footer.ejs") %>
