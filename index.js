@@ -19,11 +19,6 @@ app.set("view engine", "ejs")
 app.use(express.static("public"))
 
 app.use(express.json());
-                                                                                                    ; //can be false//
-
-// app.use('/css',express.static(path.resolve(__dirname,'public/css')))
-// app.use('/img',express.static(path.resolve(__dirname,'public/img')))
-// app.use('/js',express.static(path.resolve(__dirname,'public/js')))
 
 app.use(session({
     secret : uuidv4(),
@@ -36,12 +31,12 @@ app.use((req,res,next)=>{
     res.set('Cache-control','no-store,no-cache')
     next()
 })
-
+ 
 
 
 app.use("/",router)
 
-// app.use("/admin",)
+
 
 app.listen(port,()=>{
     console.log(`running on ${port}`) 
