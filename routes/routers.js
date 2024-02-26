@@ -19,6 +19,7 @@ router.get("/signup",usercontroller.getSignup).post("/signup",usercontroller.pos
 
 //Admin Routes
 
+//creates user............................
 router.get("/createUser",adminController.createUser);
 
 router.get("/deleteUser",adminController.deleteUser);
